@@ -13,6 +13,7 @@ x-environment: &airflow_environment
   - AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION}
   - AWS_S3_BUCKET_NAME=${AWS_S3_BUCKET_NAME}
   - WEATHERMAP_API_KEY=${WEATHERMAP_API_KEY}
+  - WEATHERMAP_CITY=${WEATHERMAP_CITY}
 x-airflow-image: &airflow_image ${IMAGE_PREFIX}-airflow:latest
 # ====================================== /AIRFLOW ENVIRONMENT VARIABLES ======================================
 services:

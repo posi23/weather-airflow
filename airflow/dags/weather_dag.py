@@ -10,6 +10,7 @@ sys.path.insert(0, '/opt/airflow/etl')
 from transform_data import transform_weather_data, save_to_s3
 
 weathermap_api_key = os.environ.get('WEATHERMAP_API_KEY')
+weathermap_city = os.environ.get('WEATHERMAP_CITY')
 
 default_args = {
     'owner': 'posi',
@@ -33,14 +34,14 @@ with DAG(
     is_api_ready = HttpSensor(
         task_id='is_api_ready',
         http_conn_id='weathermap_api',
-        endpoint=f'/data/2.5/weather?q=Calgary&appid={weathermap_api_key}'
+        endpoint=f'/data/2.5/weather?q={weathermap_city}&appid={weathermap_api_key}'
     )
 
     extract_weather_data = SimpleHttpOperator(
         task_id='extract_weather_data',
         http_conn_id='weathermap_api',
         method='GET',
-        endpoint=f'/data/2.5/weather?q=Calgary&appid={weathermap_api_key}',
+        endpoint=f'/data/2.5/weather?q={weathermap_city}&appid={weathermap_api_key}',
         response_filter=lambda response: json.loads(response.text),
         log_response=True
     )
