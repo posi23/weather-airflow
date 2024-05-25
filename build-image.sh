@@ -1,0 +1,1 @@
+export $(grep -v '^#' .env | xargs) && docker build -t ${IMAGE_PREFIX}-airflow:latest .
