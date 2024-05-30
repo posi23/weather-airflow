@@ -58,3 +58,7 @@ With a focus on scalability, reliability, and maintainability, "Weather-Airflow"
 
 
 **Steps on getting *your_weathermap_api_key***
+1. Go to https://openweathermap.org/
+2. Register / Sign up for an account
+3. Next, navigate to My API keys <img width="1440" alt="Screenshot 2024-05-30 at 12 08 31 PM" src="https://github.com/posi23/weather-airflow/assets/62328538/b238ad5e-861e-4abe-839a-e5a7714229ac">
+4. There should be a default key provided (if not you can just easily generate/create a new one), so you can just copy that key and paste it as the value for the WEATHERMAP_API_KEY variable in your .env file.
